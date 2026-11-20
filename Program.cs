@@ -1,37 +1,49 @@
 ﻿
 using System;
 
-// Create a class that contains our math operation.
-public class MathOperations
+// Define an interface named IQuittable.
+// Any class implementing this interface must have a Quit() method.
+public interface IQuittable
 {
-    // Define a void method that accepts two integers.
-    // Void means the method does not return a value.
-    public void PerformOperation(int firstNumber, int secondNumber)
+    // Declare a void method called Quit().
+    void Quit();
+}
+
+// Create an Employee class that implements the IQuittable interface.
+public class Employee : IQuittable
+{
+    // Create a property to store the employee's first name.
+    public string FirstName { get; set; } = "";
+
+    // Create a property to store the employee's last name.
+    public string LastName { get; set; } = "";
+
+    // Implement the Quit() method required by the interface.
+    public void Quit()
     {
-        // Multiply the first integer by 2.
-        int result = firstNumber * 2;
-
-        // Display the result of the math operation.
-        Console.WriteLine("Math result: " + result);
-
-        // Display the second integer on the screen.
-        Console.WriteLine("Second number: " + secondNumber);
+        // Display a message indicating the employee has quit.
+        Console.WriteLine(FirstName + " " + LastName + " has quit the company.");
     }
 }
 
-// Create the main Program class.
+// Define the Program class.
 class Program
 {
-    // Main is the entry point of the console application.
+    // Main is the entry point of the application.
     static void Main(string[] args)
     {
-        // Instantiate the MathOperations class.
-        MathOperations math = new MathOperations();
+        // Create an Employee object using the IQuittable interface type.
+        // This demonstrates polymorphism.
+        IQuittable employee = new Employee
+        {
+            // Assign the employee's first name.
+            FirstName = "John",
 
-        // Call the method using two integer arguments.
-        math.PerformOperation(5, 10);
+            // Assign the employee's last name.
+            LastName = "Smith"
+        };
 
-        // Call the method using named parameters.
-        math.PerformOperation(firstNumber: 8, secondNumber: 20);
+        // Call the Quit() method through the interface reference.
+        employee.Quit();
     }
 }
