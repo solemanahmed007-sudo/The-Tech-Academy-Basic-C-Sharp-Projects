@@ -1,49 +1,81 @@
 ﻿
 using System;
 
-// Define an interface named IQuittable.
-// Any class implementing this interface must have a Quit() method.
-public interface IQuittable
+// Create an Employee class to store employee information.
+public class Employee
 {
-    // Declare a void method called Quit().
-    void Quit();
-}
+    // Property to store the employee's unique ID.
+    public int Id { get; set; }
 
-// Create an Employee class that implements the IQuittable interface.
-public class Employee : IQuittable
-{
-    // Create a property to store the employee's first name.
+    // Property to store the employee's first name.
     public string FirstName { get; set; } = "";
 
-    // Create a property to store the employee's last name.
+    // Property to store the employee's last name.
     public string LastName { get; set; } = "";
 
-    // Implement the Quit() method required by the interface.
-    public void Quit()
+    // Overload the == operator to compare employees by their IDs.
+    public static bool operator ==(Employee? employee1, Employee? employee2)
     {
-        // Display a message indicating the employee has quit.
-        Console.WriteLine(FirstName + " " + LastName + " has quit the company.");
+        // If both references point to the same object, return true.
+        if (ReferenceEquals(employee1, employee2))
+            return true;
+
+        // If either employee is null, they are not equal.
+        if (employee1 is null || employee2 is null)
+            return false;
+
+        // Compare the ID properties of both employees.
+        return employee1.Id == employee2.Id;
+    }
+
+    // Overload the != operator, which is required alongside ==.
+    public static bool operator !=(Employee? employee1, Employee? employee2)
+    {
+        // Return the opposite result of the == comparison.
+        return !(employee1 == employee2);
+    }
+
+    // Override Equals to maintain consistency with the == operator.
+    public override bool Equals(object? obj)
+    {
+        // Check whether obj is an Employee with the same ID.
+        return obj is Employee other && Id == other.Id;
+    }
+
+    // Override GetHashCode to use the employee's ID.
+    public override int GetHashCode()
+    {
+        // Return a hash code based on the employee's ID.
+        return Id.GetHashCode();
     }
 }
 
-// Define the Program class.
+// Create the main Program class.
 class Program
 {
-    // Main is the entry point of the application.
+    // Main is the starting point of the application.
     static void Main(string[] args)
     {
-        // Create an Employee object using the IQuittable interface type.
-        // This demonstrates polymorphism.
-        IQuittable employee = new Employee
+        // Create the first Employee object.
+        Employee employee1 = new Employee
         {
-            // Assign the employee's first name.
+            Id = 101,
             FirstName = "John",
-
-            // Assign the employee's last name.
             LastName = "Smith"
         };
 
-        // Call the Quit() method through the interface reference.
-        employee.Quit();
+        // Create the second Employee object.
+        Employee employee2 = new Employee
+        {
+            Id = 101,
+            FirstName = "Jane",
+            LastName = "Doe"
+        };
+
+        // Compare the employees using the overloaded == operator.
+        Console.WriteLine("Employees are equal: " + (employee1 == employee2));
+
+        // Compare the employees using the overloaded != operator.
+        Console.WriteLine("Employees are not equal: " + (employee1 != employee2));
     }
 }
