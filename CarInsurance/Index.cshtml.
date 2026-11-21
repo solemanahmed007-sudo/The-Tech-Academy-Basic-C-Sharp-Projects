@@ -1,0 +1,31 @@
+
+@model IEnumerable<CarInsurance.Models.Insuree>
+
+@{
+    ViewData["Title"] = "Insurance Quotes";
+}
+
+<h2>Insurance Quotes</h2>
+
+<a asp-action="Create" class="btn btn-primary">
+    New Insurance Quote
+</a>
+
+<!-- Display calculated quotes. -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Monthly Quote</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>@person.FirstName @person.LastName</td>
+                <td>@person.Quote.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

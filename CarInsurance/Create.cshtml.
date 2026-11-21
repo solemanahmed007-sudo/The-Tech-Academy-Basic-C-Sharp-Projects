@@ -1,0 +1,58 @@
+
+@model CarInsurance.Models.Insuree
+
+@{
+    ViewData["Title"] = "Insurance Quote";
+}
+
+<h2>Car Insurance Application</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="All"></div>
+
+    <!-- Collect applicant information. -->
+    <label>First Name</label>
+    <input asp-for="FirstName" class="form-control" required />
+
+    <label>Last Name</label>
+    <input asp-for="LastName" class="form-control" required />
+
+    <label>Email Address</label>
+    <input asp-for="EmailAddress" type="email" class="form-control" required />
+
+    <label>Date of Birth</label>
+    <input asp-for="DateOfBirth" type="date" class="form-control" required />
+
+    <!-- Collect vehicle information. -->
+    <label>Car Year</label>
+    <input asp-for="CarYear" type="number" class="form-control" required />
+
+    <label>Car Make</label>
+    <input asp-for="CarMake" class="form-control" required />
+
+    <label>Car Model</label>
+    <input asp-for="CarModel" class="form-control" required />
+
+    <!-- Collect driving history. -->
+    <label>DUI</label>
+    <input asp-for="DUI" type="checkbox" />
+
+    <div>
+        <label>Speeding Tickets</label>
+        <input asp-for="SpeedingTickets" type="number"
+               min="0" class="form-control" />
+    </div>
+
+    <!-- Collect insurance coverage preference. -->
+    <div>
+        <label>Full Coverage</label>
+        <input asp-for="CoverageType" type="checkbox" />
+    </div>
+
+    <!-- Quote is calculated automatically, not entered. -->
+    <br />
+    <button type="submit" class="btn btn-primary">
+        Get Quote
+    </button>
+</form>
