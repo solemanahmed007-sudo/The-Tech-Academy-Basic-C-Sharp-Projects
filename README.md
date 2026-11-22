@@ -1,38 +1,39 @@
-# The Tech Academy Basic C-Sharp Projects
 
-## Introduction
+# C# and .NET Projects
 
-This repository contains my C# programming projects and assignments completed as part of my coursework at The Tech Academy.
+This repository contains projects I completed while studying C# and the .NET development framework through The Tech Academy.
 
-Throughout this course, I will be learning the fundamentals of C# programming and applying what I learn through practical coding exercises and projects.
+## Projects
 
-The purpose of this repository is to document my progress, organize my work, and build a portfolio that demonstrates my programming skills.
+### Car Insurance
+An ASP.NET MVC web application that simulates a car insurance website. It accepts customer and vehicle information, calculates insurance quotes based on business rules, and uses Entity Framework with a database to store records.
 
-## What This Repository Will Contain
+### Package Express
+A C# console application that calculates shipping quotes based on package weight and dimensions, including input validation.
 
-As I progress through the course, I will upload projects covering topics such as:
+### Entity Framework Code-First Student Database
+A C# application demonstrating Entity Framework Code-First development, including defining a Student model, creating a database, and adding a student record.
 
-- Basic C# syntax and programming concepts
-- Variables, data types, and operators
-- Conditional statements and loops
-- Methods and functions
-- Classes and object-oriented programming
-- Debugging and problem-solving exercises
-- Other C# projects completed throughout the course
+## Technical Skills Developed
 
-## Tools and Technologies
-
-- C#
-- .NET
-- Visual Studio
-- Git and GitHub
-
-## Progress
-
-I will continue updating this repository as I complete new assignments and projects. My goal is to become more comfortable writing C# code and develop a stronger understanding of software development.
+- C# programming
+- Object-oriented programming
+- .NET and ASP.NET Core MVC
+- Entity Framework and Code-First development
+- SQL and database management
+- CRUD operations
+- Conditional logic and input validation
+- Debugging and troubleshooting
+- Git and GitHub version control
 
 ## About Me
 
-I have a background in business, internal auditing, and cybersecurity, and I am continuing to expand my technical skills through software development.
+I am a financial analyst with a background in business, accounting,  and risk management.
 
-This repository is part of my ongoing learning journey and professional portfolio.
+I am developing software engineering skills to strengthen my ability to understand applications, databases, automated controls, and technology risks.
+
+## GitHub Portfolio
+
+[View my GitHub profile](https://github.com/solemanahmed007-sudo)
+
+[View my HTML, CSS, and JavaScript portfolio](https://github.com/solemanahmed007-sudo/HTML-and-CSS-Projects/tree/main/JS_Portfolio_Student)
